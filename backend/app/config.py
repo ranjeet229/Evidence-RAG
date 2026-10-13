@@ -9,5 +9,7 @@ class Settings(BaseSettings):
     gemini_model: str = 'gemini-3.5-flash-lite'
     max_upload_mb: int = 10
     cors_origins: str = 'http://localhost:5173'
+    auth_secret: str = ''
+    auth_token_hours: int = 168
 
 settings = Settings()

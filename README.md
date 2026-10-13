@@ -1,5 +1,26 @@
 # Evidence RAG
 
+## V2 accounts and private workspaces
+
+V2 uses an account and a private workspace for every user. Documents, chats,
+feedback, and evaluation runs are always scoped to that workspace.
+
+Set a long, random `AUTH_SECRET` in `.env` locally and in Render before using
+accounts in production. Do not reuse the example value below.
+
+```ini
+AUTH_SECRET=replace-with-a-long-random-secret
+AUTH_TOKEN_HOURS=168
+```
+
+After deploying V2, create your account in the new sign-up screen. If you have
+documents from the earlier single-user version, attach them to that first
+workspace once:
+
+```powershell
+.\.venv\Scripts\python.exe -m backend.app.migrate_legacy you@example.com
+```
+
 A document question-answering application with source citations and a repeatable RAG benchmark.
 
 ## Requirements
